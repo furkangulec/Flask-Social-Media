@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user}} - Edit Profile</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://icons.getbootstrap.com/assets/font/bootstrap-icons.css"><link rel="stylesheet" href="https://icons.getbootstrap.com/assets/css/docs.css"> -->
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+
+
+
+
+
+</head>
+<body>
+    
+
+    <div id="wrapper" class="active">
+
+   
+
+      {% if login_status == True %}
+      {% include "././navbar/navbar.html" %}
+
+      {% endif %}
+
+
+      {% if message != "" %}
+      <div class="alert alert-{{messageType}} mb-0" role="alert">
+          {{message}} | You will be redirected to your profile page in 2 seconds..
+        </div>
+        <meta http-equiv="refresh" content="2;url=/panel/profile" />
+
+      {% endif %}
+
+
+
+
+
+    <div class="container">
+        <div class="main-body">
+          <form action="/panel/profile/edit" method="POST" >
+
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                
+                  <div class="card">
+                    <ul class="list-group list-group-flush">
+
+                    
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
+                        <input type="url" name="website" aria-describedby="basic-addon2" value="{{ website }}">
+                      </li>
+
+       
+                    
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
+                        <input type="text" name="github" aria-describedby="basic-addon2" value="{{ github }}">
+                      </li>
+
+                  
+
+
+                     
+                    
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+                        <input type="text" name="twitter" aria-describedby="basic-addon2" value="{{ twitter }}" >
+                      </li>
+
+                
+
+
+
+                
+                    
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+                        <input type="text" name="instagram" aria-describedby="basic-addon2" value="{{ instagram }}">
+                      </li>
+
+                
+
+
+                  
+                    
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+                        <input type="text" name="facebook" aria-describedby="basic-addon2" value="{{ facebook }}" >
+                      </li>
+
+               
+
+                
+                   
+
+               
+
+                    
+
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Full Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="text" name="fullname" aria-describedby="basic-addon2" value="{{ fullname }}">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="email" name="email" aria-describedby="basic-addon2" value="{{ email }}">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="tel" name="phone" aria-describedby="basic-addon2" value="{{ phone }}" pattern="[0-9]{6,15}">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Job</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="text" name="job" aria-describedby="basic-addon2" value="{{ job }}">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="text" name="address" aria-describedby="basic-addon2" value="{{ address }}">
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+    
+
+                  <div class="row gutters-sm">
+                    <div class="col-sm-12 mb-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">skills</i></h6>
+
+
+                   
+                          
+
+
+
+                          <div>
+                            <small><input type="text" name="skill_1_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_1_name }}"></small>
+                            <small><input type="number" name="skill_1_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_1_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+
+        
+                      
+
+                          <div>
+                            <small><input type="text" name="skill_2_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_2_name }}"></small>
+                            <small><input type="number" name="skill_2_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_2_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+                          
+                          
+                          <div>
+                            <small><input type="text" name="skill_3_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_3_name }}"></small>
+                            <small><input type="number" name="skill_3_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_3_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+
+                          </div>
+
+                        
+                          <div>
+
+                            <small><input type="text" name="skill_4_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_4_name }}"></small>
+                            <small><input type="number" name="skill_4_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_4_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+
+                        
+                          <div>
+
+                            <small><input type="text" name="skill_5_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_5_name }}"></small>
+                            <small><input type="number" name="skill_5_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_5_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+
+                          </div>
+
+                         
+                          <div>
+                            <small><input type="text" name="skill_6_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_6_name }}"></small>
+                            <small><input type="number" name="skill_6_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_6_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+                          
+
+                          <div>
+                            <small><input type="text" name="skill_7_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_7_name }}"></small>
+                            <small><input type="number" name="skill_7_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_7_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+
+
+                          <div>
+                            <small><input type="text" name="skill_8_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_8_name }}"></small>
+                            <small><input type="number" name="skill_8_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_8_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+                          </div>
+
+                          <div>
+
+                            <small><input type="text" name="skill_9_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_9_name }}"></small>
+                            <small><input type="number" name="skill_9_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_9_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+
+                          </div>
+
+                         
+                          <div>
+
+                            <small><input type="text" name="skill_10_name" class="mb-3" aria-describedby="basic-addon2" value="{{ skill_10_name }}"></small>
+                            <small><input type="number" name="skill_10_value" class="mb-3" min="0" step="1" max="100" aria-describedby="basic-addon2" value="{{ skill_10_value }}" onchange="myFunction()"></small>
+                            <small>Enter a value between 0-100</small>
+
+                          </div>
+
+                              
+                        </div>
+                      </div>
+                      <div class="row mt-3 mb-3">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <input class="btn btn-info" type="submit" value="Save" name = "process"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+             
+                  </div>
+    
+    
+    
+                </div>
+              </div>
+              </form>
+    
+            </div>
+        </div>
+    
+
+
+</div>
+
+            
+        
+        
+        
+        
+
+            
+
+
+
+    
+    
+    
+
+    </div>
+
+
+
+    <style>
+        .profile-img{
+            text-align: center;
+        }
+        .profile-img img{
+            width: 70%;
+            height: 100%;
+        }
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+            margin-top: -20%;
+            width: 70%;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            background: #212529b8;
+        }
+        .profile-img .file input {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }       
+
+        body{
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+              </style>
+
+
+    
+
+
+</body>
+</html>

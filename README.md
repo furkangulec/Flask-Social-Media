@@ -30,4 +30,19 @@ I used MySQL. First of all, you should create tables. You can access the photos 
 
 # Tables:
 
+![Table Names](/tables/Tables-1.png)
+
+![contactprofile](/tables/table-contactprofile.png)
+
+![login](/tables/table-login.png)
+
+![posts](/tables/table-posts.png)
+
+![profilephotos](/tables/table-profilephotos.png)
+
+![skills](/tables/table-skills.png)
+
+![social](/tables/table-social.png)
+
+
 
